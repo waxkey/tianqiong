@@ -52,7 +52,7 @@ with st.sidebar:
     
     # API配置
     st.subheader("天穹之眼 API配置")
-    api_key = st.text_input("API密钥", value=TIANQIONG_API_KEY, help="输入您的天穹之眼 API密钥")
+    api_key = st.text_input("API密钥", type="password", help="输入您的天穹之眼 API密钥")
     api_url = st.text_input("API端点", value="https://api.tianqiong.com", 
                            help="天穹之眼 API端点URL")
     
@@ -169,7 +169,7 @@ with tab2:
         st.dataframe(df.describe())
         
         # 与DeepSeek API交互
-        if api_key:
+        if True:
             st.subheader("天穹之眼 数据分析")
             
             # 准备分析提示
