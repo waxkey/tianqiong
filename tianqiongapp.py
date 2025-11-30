@@ -259,23 +259,10 @@ with tab3:
     if 'df' in locals():
         # 选择可视化类型
         viz_type = st.selectbox("选择可视化类型", 
-                               ["分布直方图", "散点图矩阵", "相关性热图", "箱形图"])
+                               ["散点图矩阵", "相关性热图", "箱形图"])
         
-        if viz_type == "分布直方图":
-            st.subheader("参数分布直方图")
-            numeric_columns = df.select_dtypes(include=[np.number]).columns
-            selected_column = st.selectbox("选择参数", numeric_columns)
             
-            fig, ax = plt.subplots(figsize=(10, 6))
-            ax.hist(df[selected_column].dropna(), bins=15, alpha=0.7, color='steelblue', edgecolor='black')
-            ax.set_xlabel(selected_column)
-            ax.set_ylabel('频数')
-            ax.set_title(f'{selected_column}分布直方图')
-            ax.grid(True, alpha=0.3)
-            
-            st.pyplot(fig)
-            
-        elif viz_type == "散点图矩阵":
+        if viz_type == "散点图矩阵":
             st.subheader("散点图矩阵")
             numeric_columns = df.select_dtypes(include=[np.number]).columns
             selected_columns = st.multiselect("选择参数", numeric_columns, default=list(numeric_columns[:4]))
